@@ -1,4 +1,4 @@
-package statushouse.util;
+package statushouse.validation;
 
 public class InputValidator {
 
