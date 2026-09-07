@@ -7,6 +7,11 @@ import statushouse.model.VisitorLog;
 
 public class VisitorLogRepository {
 	private List<VisitorLog> visitorLogs = new ArrayList<>();
+	private int nextId = 1;
+
+	public int createNextId() {
+		return nextId++;
+	}
 
 	// save
 	public void save(VisitorLog log) {
