@@ -26,10 +26,6 @@ public class VisitorLog {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public String getVisitorName() {
 		return visitorName;
 	}
@@ -56,10 +52,6 @@ public class VisitorLog {
 
 	public String getVisitedAt() {
 		return visitedAt;
-	}
-
-	public void setVisitedAt(String visitedAt) {
-		this.visitedAt = visitedAt;
 	}
 
 }
