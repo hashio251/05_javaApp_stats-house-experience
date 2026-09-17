@@ -1,5 +1,7 @@
 package statushouse.ui;
 
+import java.util.List;
+
 import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogReadService;
 
@@ -12,8 +14,18 @@ public class ListMenu {
 
 	public void show() {
 		List<VisitorLog> logs = readService.findAll();
-		
-		if (logs.())
-}
 
+		if (logs.isEmpty()) {
+			System.out.println("訪問者ログがありません。");
+			return;
+		}
+
+		for (VisitorLog log : logs) {
+			System.out.println("ID: " + log.getId());
+			System.out.println("Visitor Name: " + log.getVisitorName());
+			System.out.println("Room Code: " + log.getRoomCode());
+			System.out.println("Visited At: " + log.getVisitedAt());
+			System.out.println("Message: " + log.getMessage());
+		}
+	}
 }
