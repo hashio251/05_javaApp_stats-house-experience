@@ -53,5 +53,14 @@ public class UpdateMenu {
 		System.out.println("Message: " + log.getMessage());
 		System.out.println("Visited At: " + log.getVisitedAt());
 
+		System.out.println();
+		System.out.print("New Visitor Name: ");
+		String visitorName = scanner.nextLine();
+
+		while (validator.isEmpty(visitorName)) {
+			System.out.println("名前を入力してください。");
+			System.out.print("New Visitor Name: ");
+			visitorName = scanner.nextLine();
+		}
 	}
 }
