@@ -31,9 +31,9 @@ public class SearchMenu {
 			idInput = scanner.nextLine();
 		}
 
-		int visitorIntegerId = Integer.parseInt(idInput);
+		int id = Integer.parseInt(idInput);
 
-		VisitorLog log = readService.findById(visitorIntegerId);
+		VisitorLog log = readService.findById(id);
 
 		if (log == null) {
 			System.out.println("404 Not Found");
