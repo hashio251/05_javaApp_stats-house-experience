@@ -57,17 +57,20 @@ public class DeleteMenu {
 		System.out.println("1 : Yes");
 		System.out.println("2 : No");
 		System.out.print("数字を入力してください。: ");
-		int userAnswer = scanner.nextInt();
+		String inputAnswer = scanner.nextLine();
 
-		if (userAnswer == 1) {
+		while (!validator.isNumber(inputAnswer)) {
+			System.out.println("1か2を入力してください。");
+			inputAnswer = scanner.nextLine();
+		}
+
+		int answer = Integer.parseInt(inputAnswer);
+
+		if (answer == 1) {
 			deleteService.delete(id);
 			System.out.println("204 No Content");
-		} else if (userAnswer == 2) {
-			return;
 		} else {
-			while (userAnswer == 1 || userAnswer == 2)
-				System.out.println("数字を入力してください。");
-			userAnswer = scanner.nextInt();
+			System.out.println("削除をキャンセルしました。");
 		}
 
 	}
