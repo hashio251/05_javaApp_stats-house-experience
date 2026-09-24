@@ -37,6 +37,7 @@ public class SearchMenu {
 
 		if (log == null) {
 			System.out.println("404 Not Found");
+			System.out.println();
 			return;
 		}
 
