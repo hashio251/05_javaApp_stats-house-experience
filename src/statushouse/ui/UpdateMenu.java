@@ -52,8 +52,11 @@ public class UpdateMenu {
 		System.out.println("Room Code: " + log.getRoomCode());
 		System.out.println("Message: " + log.getMessage());
 		System.out.println("Visited At: " + log.getVisitedAt());
-
 		System.out.println();
+
+		// create new visitor name
+		// create new visitor name
+		// create new visitor name
 		System.out.print("New Visitor Name: ");
 		String visitorName = scanner.nextLine();
 
@@ -62,5 +65,33 @@ public class UpdateMenu {
 			System.out.print("New Visitor Name: ");
 			visitorName = scanner.nextLine();
 		}
+
+		// Create new room code
+		// Create new room code
+		// Create new room code
+		System.out.print("New Room Code: ");
+		String roomCodeInput = scanner.nextLine();
+
+		while (!validator.isNumber(roomCodeInput)) {
+			System.out.println("数字を入力してください。");
+			System.out.print("New Room Code: ");
+			roomCodeInput = scanner.nextLine();
+		}
+
+		int roomCode = Integer.parseInt(roomCodeInput);
+
+		// create new message
+		// create new message
+		// create new message
+		System.out.println("メッセージを入力してください。");
+		String visitorMessage = scanner.nextLine();
+
+		while (validator.isEmpty(visitorMessage)) {
+			System.out.println("メッセージを入力してください。");
+			visitorMessage = scanner.nextLine();
+		}
+
+		// 呼び出し
+		VisitorLog showLog = updateService.update(id, visitorName, roomCode, visitorMessage);
 	}
 }
