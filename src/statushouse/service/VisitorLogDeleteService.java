@@ -3,14 +3,13 @@ package statushouse.service;
 import statushouse.model.VisitorLog;
 import statushouse.repository.VisitorLogRepository;
 
-public class VisitorLogDeleteService {
-	private final VisitorLogRepository repository;
+public class VisitorLogDeleteService extends VisitorLogService {
 
 	/**
 	 * @param repository
 	 */
 	public VisitorLogDeleteService(VisitorLogRepository repository) {
-		this.repository = repository;
+		super(repository);
 	}
 
 	public VisitorLog delete(int id) {

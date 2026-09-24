@@ -5,15 +5,12 @@ import java.time.LocalDateTime;
 import statushouse.model.VisitorLog;
 import statushouse.repository.VisitorLogRepository;
 
-public class VisitorLogCreateService {
-
-	private final VisitorLogRepository repository;
-
+public class VisitorLogCreateService extends VisitorLogService {
 	/**
 	 * @param repository
 	 */
 	public VisitorLogCreateService(VisitorLogRepository repository) {
-		this.repository = repository;
+		super(repository);
 	}
 
 	// 名前・部屋番号・メッセージをもらったら登録処理
