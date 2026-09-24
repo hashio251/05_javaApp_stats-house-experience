@@ -92,6 +92,14 @@ public class UpdateMenu {
 		}
 
 		// 呼び出し
-		VisitorLog showLog = updateService.update(id, visitorName, roomCode, visitorMessage);
+		VisitorLog updatedLog = updateService.update(id, visitorName, roomCode, visitorMessage);
+
+		System.out.println("200 OK");
+		System.out.println("ID: " + updatedLog.getId());
+		System.out.println("Visitor Name: " + updatedLog.getVisitorName());
+		System.out.println("Room Code: " + updatedLog.getRoomCode());
+		System.out.println("Message: " + updatedLog.getMessage());
+		System.out.println("Visited At: " + updatedLog.getVisitedAt());
+
 	}
 }
