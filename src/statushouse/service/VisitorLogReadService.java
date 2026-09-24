@@ -6,7 +6,7 @@ import statushouse.model.VisitorLog;
 import statushouse.repository.VisitorLogRepository;
 
 public class VisitorLogReadService {
-	private VisitorLogRepository repository;
+	private final VisitorLogRepository repository;
 
 	public VisitorLogReadService(VisitorLogRepository repository) {
 		this.repository = repository;

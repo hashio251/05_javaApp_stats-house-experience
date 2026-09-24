@@ -1,6 +1,9 @@
 package statushouse.constant;
 
+// httpstatusのenum
+
 public enum HttpStatus {
+	// httpstatusログとして使うコード
 	OK(200, "OK"), CREATED(201, "Created"), NO_CONTENT(204, "No Content"), BAD_REQUEST(400,
 			"Bad Request"), NOT_FOUND(404, "Not Found"), INTERNAL_SERVER_ERROR(500, "Internal Server Error");
 
@@ -24,4 +27,7 @@ public enum HttpStatus {
 		return message;
 	}
 
+	public String getStatusLine() {
+		return code + " " + message;
+	}
 }

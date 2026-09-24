@@ -2,14 +2,15 @@ package statushouse.ui;
 
 import java.util.Scanner;
 
+import statushouse.constant.HttpStatus;
 import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogCreateService;
 import statushouse.validation.InputValidator;
 
 public class CreateMenu {
-	private Scanner scanner;
-	private VisitorLogCreateService createService;
-	private InputValidator inputValidator;
+	private final Scanner scanner;
+	private final VisitorLogCreateService createService;
+	private final InputValidator inputValidator;
 
 	/**
 	 * @param scanner
@@ -52,7 +53,7 @@ public class CreateMenu {
 
 		VisitorLog log = createService.create(nameInput, roomCode, message);
 
-		System.out.println("201 Created");
+		System.out.println(HttpStatus.CREATED.getStatusLine());
 		System.out.println("ID: " + log.getId());
 		System.out.println("Visitor Name: " + log.getVisitorName());
 		System.out.println("Room Code: " + log.getRoomCode());

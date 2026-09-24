@@ -5,8 +5,8 @@ import java.util.Scanner;
 import statushouse.validation.InputValidator;
 
 public class MainMenu {
-	private Scanner scanner;
-	private InputValidator validator;
+	private final Scanner scanner;
+	private final InputValidator validator;
 
 	public MainMenu(Scanner scanner, InputValidator validator) {
 		this.scanner = scanner;

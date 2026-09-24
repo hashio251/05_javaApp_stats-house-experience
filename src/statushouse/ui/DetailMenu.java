@@ -2,15 +2,16 @@ package statushouse.ui;
 
 import java.util.Scanner;
 
+import statushouse.constant.HttpStatus;
 import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogReadService;
 import statushouse.validation.InputValidator;
 
 public class DetailMenu {
 
-	private Scanner scanner;
-	private VisitorLogReadService readService;
-	private InputValidator inputValidator;
+	private final Scanner scanner;
+	private final VisitorLogReadService readService;
+	private final InputValidator inputValidator;
 
 	/**
 	 * @param scanner
@@ -38,10 +39,11 @@ public class DetailMenu {
 		VisitorLog log = readService.findById(id);
 
 		if (log == null) {
-			System.out.println("404 Not Found");
+			System.out.println(HttpStatus.NOT_FOUND.getStatusLine());
 			return;
 		}
 
+		System.out.println(HttpStatus.OK.getStatusLine());
 		System.out.println("ID: " + log.getId());
 		System.out.println("Visitor Name: " + log.getVisitorName());
 		System.out.println("Room Code: " + log.getRoomCode());
