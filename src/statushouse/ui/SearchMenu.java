@@ -32,6 +32,7 @@ public class SearchMenu implements Menu {
 		String idInput = scanner.nextLine();
 
 		while (!validator.isNumber(idInput)) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
 			System.out.println("数字を入力してください。");
 			idInput = scanner.nextLine();
 		}

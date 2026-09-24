@@ -36,6 +36,7 @@ public class DeleteMenu implements Menu {
 		System.out.println("Visitor ID: ");
 		String inputId = scanner.nextLine();
 		while (!validator.isNumber(inputId)) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
 			System.out.println("IDを入力してください。");
 			System.out.println("Visitor ID: ");
 			inputId = scanner.nextLine();
@@ -59,6 +60,7 @@ public class DeleteMenu implements Menu {
 		String inputAnswer = scanner.nextLine();
 
 		while (!inputAnswer.equals("1") && !inputAnswer.equals("2")) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
 			System.out.println("1か2を入力してください。");
 			inputAnswer = scanner.nextLine();
 		}

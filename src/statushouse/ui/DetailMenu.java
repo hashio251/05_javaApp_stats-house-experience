@@ -33,6 +33,7 @@ public class DetailMenu implements Menu {
 		String idInput = scanner.nextLine();
 
 		while (!inputValidator.isNumber(idInput)) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
 			System.out.println("IDを入力してください。");
 			System.out.println("ID: ");
 			idInput = scanner.nextLine();
