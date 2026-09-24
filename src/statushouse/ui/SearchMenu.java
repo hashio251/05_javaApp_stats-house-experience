@@ -2,6 +2,7 @@ package statushouse.ui;
 
 import java.util.Scanner;
 
+import statushouse.constant.HttpStatus;
 import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogReadService;
 import statushouse.validation.InputValidator;
@@ -36,12 +37,12 @@ public class SearchMenu {
 		VisitorLog log = readService.findById(id);
 
 		if (log == null) {
-			System.out.println("404 Not Found");
+			System.out.println(HttpStatus.NOT_FOUND.getStatusLine());
 			System.out.println();
 			return;
 		}
 
-		System.out.println("200 OK");
+		System.out.println(HttpStatus.OK.getStatusLine());
 		System.out.println("ID: " + log.getId());
 		System.out.println("Visitor Name: " + log.getVisitorName());
 		System.out.println("Room Code: " + log.getRoomCode());

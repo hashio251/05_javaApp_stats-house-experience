@@ -2,6 +2,7 @@ package statushouse.ui;
 
 import java.util.List;
 
+import statushouse.constant.HttpStatus;
 import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogReadService;
 
@@ -21,6 +22,7 @@ public class ListMenu {
 		}
 
 		for (VisitorLog log : logs) {
+			System.out.println(HttpStatus.OK.getStatusLine());
 			System.out.println("ID: " + log.getId());
 			System.out.println("Visitor Name: " + log.getVisitorName());
 			System.out.println("Room Code: " + log.getRoomCode());

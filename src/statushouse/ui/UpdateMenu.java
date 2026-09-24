@@ -2,6 +2,7 @@ package statushouse.ui;
 
 import java.util.Scanner;
 
+import statushouse.constant.HttpStatus;
 import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogReadService;
 import statushouse.service.VisitorLogUpdateService;
@@ -42,11 +43,11 @@ public class UpdateMenu {
 		VisitorLog log = readService.findById(id);
 
 		if (log == null) {
-			System.out.println("404 Not Found");
+			System.out.println(HttpStatus.NOT_FOUND.getStatusLine());
 			return;
 		}
 
-		System.out.println("200 OK");
+		System.out.println(HttpStatus.OK.getStatusLine());
 		System.out.println("ID: " + log.getId());
 		System.out.println("Visitor Name: " + log.getVisitorName());
 		System.out.println("Room Code: " + log.getRoomCode());
@@ -94,7 +95,7 @@ public class UpdateMenu {
 		// 呼び出し
 		VisitorLog updatedLog = updateService.update(id, nameInput, roomCode, messageInput);
 
-		System.out.println("200 OK");
+		System.out.println(HttpStatus.OK.getStatusLine());
 		System.out.println("ID: " + updatedLog.getId());
 		System.out.println("Visitor Name: " + updatedLog.getVisitorName());
 		System.out.println("Room Code: " + updatedLog.getRoomCode());

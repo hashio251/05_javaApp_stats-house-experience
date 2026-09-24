@@ -2,6 +2,7 @@ package statushouse.ui;
 
 import java.util.Scanner;
 
+import statushouse.constant.HttpStatus;
 import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogDeleteService;
 import statushouse.service.VisitorLogReadService;
@@ -41,11 +42,11 @@ public class DeleteMenu {
 		VisitorLog log = readService.findById(id);
 
 		if (log == null) {
-			System.out.println("404 Not Found");
+			System.out.println(HttpStatus.NOT_FOUND.getStatusLine());
 			return;
 		}
 
-		System.out.println("200 OK");
+		System.out.println(HttpStatus.OK.getStatusLine());
 		System.out.println("ID: " + log.getId());
 		System.out.println("Visitor Name: " + log.getVisitorName());
 		System.out.println("Room Code: " + log.getRoomCode());
@@ -66,7 +67,7 @@ public class DeleteMenu {
 
 		if (inputAnswer.equals("1")) {
 			deleteService.delete(id);
-			System.out.println("204 No Content");
+			System.out.println(HttpStatus.NO_CONTENT.getStatusLine());
 		} else {
 			System.out.println("削除をキャンセルしました。");
 		}
