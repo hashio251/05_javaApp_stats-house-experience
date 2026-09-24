@@ -72,8 +72,7 @@ public class Main {
 				searchMenu.show();
 				break;
 			}
-
-			scanner.close();
 		}
+		scanner.close();
 	}
 }
