@@ -27,7 +27,7 @@ public class MainMenu {
 			System.out.println("========================");
 
 			String input = scanner.nextLine();
-			if (!validator.isValidMenu(input)) {
+			if (validator.isValidMenu(input)) {
 				return input;
 			}
 			System.out.println("0-6の数字を入力してください。");
