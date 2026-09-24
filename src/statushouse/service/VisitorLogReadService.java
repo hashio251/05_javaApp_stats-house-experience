@@ -19,4 +19,14 @@ public class VisitorLogReadService extends VisitorLogService {
 	public VisitorLog findById(int id) {
 		return repository.findById(id);
 	}
+
+	// Search用(ViditorName)
+	public List<VisitorLog> findByVisitorName(String visitorName) {
+		return repository.findByVisitorName(visitorName);
+	}
+
+	// Search用(ViditorRoomCode)
+	public List<VisitorLog> findByRoomCode(int roomCode) {
+		return repository.findByRoomCode(roomCode);
+	}
 }

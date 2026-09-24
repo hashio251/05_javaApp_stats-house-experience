@@ -13,9 +13,11 @@ import statushouse.ui.DetailMenu;
 import statushouse.ui.ListMenu;
 import statushouse.ui.MainMenu;
 import statushouse.ui.Menu;
-import statushouse.ui.SearchMenu;
 import statushouse.ui.UpdateMenu;
 import statushouse.ui.VisitorLogCommonUI;
+import statushouse.ui.serch.SearchByRoomCodeMenu;
+import statushouse.ui.serch.SearchByVisitorNameMenu;
+import statushouse.ui.serch.SearchMenu;
 import statushouse.validation.InputValidator;
 
 public class Main {
@@ -51,7 +53,16 @@ public class Main {
 
 		UpdateMenu updateMenu = new UpdateMenu(scanner, readService, updateService, validator, commonUI);
 
-		SearchMenu searchMenu = new SearchMenu(scanner, readService, validator, commonUI);
+		// Searchで作ったクラスをまとめて呼び出す
+		SearchByVisitorNameMenu searchByVisitorNameMenu = new SearchByVisitorNameMenu(scanner, readService, commonUI);
+
+		SearchByRoomCodeMenu searchByRoomCodeMenu = new SearchByRoomCodeMenu(scanner, readService, validator, commonUI);
+
+		SearchMenu searchMenu = new SearchMenu(
+				scanner,
+				validator,
+				searchByVisitorNameMenu,
+				searchByRoomCodeMenu);
 
 		MainMenu mainMenu = new MainMenu(scanner, validator);
 

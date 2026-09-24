@@ -41,4 +41,34 @@ public class VisitorLogRepository {
 			visitorLogs.remove(log);
 		}
 	}
+
+	// Search用(ViditorName)
+	public List<VisitorLog> findByVisitorName(String visitorName) {
+
+		List<VisitorLog> result = new ArrayList<>();
+
+		for (VisitorLog log : visitorLogs) {
+
+			if (log.getVisitorName().equals(visitorName)) {
+				result.add(log);
+			}
+		}
+
+		return result;
+	}
+
+	// Search用(VisitorRoomCode)
+	public List<VisitorLog> findByRoomCode(int roomCode) {
+
+		List<VisitorLog> result = new ArrayList<>();
+
+		for (VisitorLog log : visitorLogs) {
+
+			if (log.getRoomCode() == roomCode) {
+				result.add(log);
+			}
+		}
+
+		return result;
+	}
 }

@@ -33,6 +33,7 @@ public class MainMenu {
 			}
 			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
 			System.out.println("0-6の数字を入力してください。");
+			System.out.println();
 		}
 	}
 
