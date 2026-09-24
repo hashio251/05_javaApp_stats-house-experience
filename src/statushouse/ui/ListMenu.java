@@ -6,7 +6,7 @@ import statushouse.constant.HttpStatus;
 import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogReadService;
 
-public class ListMenu {
+public class ListMenu implements Menu {
 	private final VisitorLogReadService readService;
 	private final VisitorLogCommonUI commonUI;
 
@@ -15,6 +15,7 @@ public class ListMenu {
 		this.commonUI = commonUI;
 	}
 
+	@Override
 	public void show() {
 		List<VisitorLog> logs = readService.findAll();
 

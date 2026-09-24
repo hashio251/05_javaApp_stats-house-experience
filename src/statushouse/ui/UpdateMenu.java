@@ -8,7 +8,7 @@ import statushouse.service.VisitorLogReadService;
 import statushouse.service.VisitorLogUpdateService;
 import statushouse.validation.InputValidator;
 
-public class UpdateMenu {
+public class UpdateMenu implements Menu {
 	private final Scanner scanner;
 	private final VisitorLogReadService readService;
 	private final VisitorLogUpdateService updateService;
@@ -30,6 +30,7 @@ public class UpdateMenu {
 		this.commonUI = commonUI;
 	}
 
+	@Override
 	public void show() {
 		System.out.println("Edit ID: ");
 		String idInput = scanner.nextLine();

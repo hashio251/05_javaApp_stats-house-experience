@@ -7,7 +7,7 @@ import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogReadService;
 import statushouse.validation.InputValidator;
 
-public class DetailMenu {
+public class DetailMenu implements Menu {
 
 	private final Scanner scanner;
 	private final VisitorLogReadService readService;
@@ -27,6 +27,7 @@ public class DetailMenu {
 		this.commonUI = commonUI;
 	}
 
+	@Override
 	public void show() {
 		System.out.println("ID: ");
 		String idInput = scanner.nextLine();

@@ -8,7 +8,7 @@ import statushouse.service.VisitorLogDeleteService;
 import statushouse.service.VisitorLogReadService;
 import statushouse.validation.InputValidator;
 
-public class DeleteMenu {
+public class DeleteMenu implements Menu {
 	private final Scanner scanner;
 	private final VisitorLogReadService readService;
 	private final VisitorLogDeleteService deleteService;
@@ -30,6 +30,7 @@ public class DeleteMenu {
 		this.commonUI = commonUI;
 	}
 
+	@Override
 	public void show() {
 		System.out.println("IDを入力してください。");
 		System.out.println("Visitor ID: ");
