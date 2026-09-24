@@ -70,6 +70,6 @@ public class DeleteMenu {
 		} else {
 			System.out.println("削除をキャンセルしました。");
 		}
-
+		System.out.println();
 	}
 }

@@ -100,6 +100,6 @@ public class UpdateMenu {
 		System.out.println("Room Code: " + updatedLog.getRoomCode());
 		System.out.println("Message: " + updatedLog.getMessage());
 		System.out.println("Visited At: " + updatedLog.getVisitedAt());
-
+		System.out.println();
 	}
 }

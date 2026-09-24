@@ -58,6 +58,7 @@ public class CreateMenu {
 		System.out.println("Room Code: " + log.getRoomCode());
 		System.out.println("Message: " + log.getMessage());
 		System.out.println("Visited At: " + log.getVisitedAt());
+		System.out.println();
 	}
 
 }
