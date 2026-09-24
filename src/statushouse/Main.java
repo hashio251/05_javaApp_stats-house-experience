@@ -55,6 +55,7 @@ public class Main {
 
 		MainMenu mainMenu = new MainMenu(scanner, validator);
 
+		// インターフェースの実装に合わせ、各MenuをMenu型にして呼び出す
 		Menu[] menus = {
 				null,
 				createMenu,
@@ -74,7 +75,7 @@ public class Main {
 			}
 
 			int menuNumber = Integer.parseInt(menu);
-
+			// 呼び出す
 			menus[menuNumber].show();
 		}
 		scanner.close();

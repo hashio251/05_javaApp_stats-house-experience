@@ -32,6 +32,7 @@ public class CreateMenu implements Menu {
 		String nameInput = scanner.nextLine();
 
 		while (inputValidator.isEmpty(nameInput)) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
 			System.out.println("名前を入力してください。");
 			System.out.print("Visitor Name: ");
 			nameInput = scanner.nextLine();
@@ -41,6 +42,7 @@ public class CreateMenu implements Menu {
 		System.out.println("Room Code: ");
 		String roomCodeInput = scanner.nextLine();
 		while (!inputValidator.isNumber(roomCodeInput)) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
 			System.out.println("数字を入力してください。");
 			System.out.print("Room Code: ");
 			roomCodeInput = scanner.nextLine();
@@ -51,6 +53,7 @@ public class CreateMenu implements Menu {
 		System.out.print("Message: ");
 		String message = scanner.nextLine();
 		while (inputValidator.isEmpty(message)) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
 			System.out.println("メッセージを入力してください。");
 			System.out.print("Message: ");
 			message = scanner.nextLine();

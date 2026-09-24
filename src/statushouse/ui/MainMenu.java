@@ -2,6 +2,7 @@ package statushouse.ui;
 
 import java.util.Scanner;
 
+import statushouse.constant.HttpStatus;
 import statushouse.validation.InputValidator;
 
 public class MainMenu {
@@ -30,6 +31,7 @@ public class MainMenu {
 			if (validator.isValidMenu(input)) {
 				return input;
 			}
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
 			System.out.println("0-6の数字を入力してください。");
 		}
 	}

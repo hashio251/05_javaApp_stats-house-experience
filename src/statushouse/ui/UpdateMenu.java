@@ -36,6 +36,7 @@ public class UpdateMenu implements Menu {
 		String idInput = scanner.nextLine();
 
 		while (!validator.isNumber(idInput)) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
 			System.out.println("数字を入力してください。");
 			System.out.print("Edit ID: ");
 			idInput = scanner.nextLine();
@@ -60,6 +61,7 @@ public class UpdateMenu implements Menu {
 		String nameInput = scanner.nextLine();
 
 		while (validator.isEmpty(nameInput)) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
 			System.out.println("名前を入力してください。");
 			System.out.print("New Visitor Name: ");
 			nameInput = scanner.nextLine();
@@ -72,6 +74,7 @@ public class UpdateMenu implements Menu {
 		String roomCodeInput = scanner.nextLine();
 
 		while (!validator.isNumber(roomCodeInput)) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
 			System.out.println("数字を入力してください。");
 			System.out.print("New Room Code: ");
 			roomCodeInput = scanner.nextLine();
@@ -86,6 +89,7 @@ public class UpdateMenu implements Menu {
 		String messageInput = scanner.nextLine();
 
 		while (validator.isEmpty(messageInput)) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
 			System.out.println("メッセージを入力してください。");
 			messageInput = scanner.nextLine();
 		}
