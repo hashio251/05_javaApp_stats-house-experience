@@ -58,12 +58,12 @@ public class UpdateMenu {
 		// create new visitor name
 		// create new visitor name
 		System.out.print("New Visitor Name: ");
-		String visitorName = scanner.nextLine();
+		String nameInput = scanner.nextLine();
 
-		while (validator.isEmpty(visitorName)) {
+		while (validator.isEmpty(nameInput)) {
 			System.out.println("名前を入力してください。");
 			System.out.print("New Visitor Name: ");
-			visitorName = scanner.nextLine();
+			nameInput = scanner.nextLine();
 		}
 
 		// Create new room code
@@ -84,15 +84,15 @@ public class UpdateMenu {
 		// create new message
 		// create new message
 		System.out.println("メッセージを入力してください。");
-		String visitorMessage = scanner.nextLine();
+		String messageInput = scanner.nextLine();
 
-		while (validator.isEmpty(visitorMessage)) {
+		while (validator.isEmpty(messageInput)) {
 			System.out.println("メッセージを入力してください。");
-			visitorMessage = scanner.nextLine();
+			messageInput = scanner.nextLine();
 		}
 
 		// 呼び出し
-		VisitorLog updatedLog = updateService.update(id, visitorName, roomCode, visitorMessage);
+		VisitorLog updatedLog = updateService.update(id, nameInput, roomCode, messageInput);
 
 		System.out.println("200 OK");
 		System.out.println("ID: " + updatedLog.getId());

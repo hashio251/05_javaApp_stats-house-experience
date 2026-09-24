@@ -23,12 +23,12 @@ public class CreateMenu {
 
 	public void show() {
 		System.out.print("Visitor Name: ");
-		String visitorName = scanner.nextLine();
+		String nameInput = scanner.nextLine();
 
-		while (inputValidator.isEmpty(visitorName)) {
+		while (inputValidator.isEmpty(nameInput)) {
 			System.out.println("名前を入力してください。");
 			System.out.print("Visitor Name: ");
-			visitorName = scanner.nextLine();
+			nameInput = scanner.nextLine();
 		}
 
 		// 追加で、別ファイルでRoomCodeを管理する
@@ -50,7 +50,7 @@ public class CreateMenu {
 			message = scanner.nextLine();
 		}
 
-		VisitorLog log = createService.create(visitorName, roomCode, message);
+		VisitorLog log = createService.create(nameInput, roomCode, message);
 
 		System.out.println("201 Created");
 		System.out.println("ID: " + log.getId());

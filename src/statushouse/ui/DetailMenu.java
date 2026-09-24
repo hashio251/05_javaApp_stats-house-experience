@@ -25,17 +25,17 @@ public class DetailMenu {
 
 	public void show() {
 		System.out.println("ID: ");
-		String visitorIdString = scanner.nextLine();
+		String idInput = scanner.nextLine();
 
-		while (!inputValidator.isNumber(visitorIdString)) {
+		while (!inputValidator.isNumber(idInput)) {
 			System.out.println("IDを入力してください。");
 			System.out.println("ID: ");
-			visitorIdString = scanner.nextLine();
+			idInput = scanner.nextLine();
 		}
 
-		int visitorId = Integer.parseInt(visitorIdString);
+		int id = Integer.parseInt(idInput);
 
-		VisitorLog log = readService.findById(visitorId);
+		VisitorLog log = readService.findById(id);
 
 		if (log == null) {
 			System.out.println("404 Not Found");
