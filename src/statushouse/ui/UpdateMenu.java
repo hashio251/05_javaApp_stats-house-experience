@@ -51,23 +51,27 @@ public class UpdateMenu implements Menu {
 			return;
 		}
 
+		// 編集する人の本人確認
+		System.out.print("Visitor Name: ");
+		String visitorNameInput = scanner.nextLine();
+
+		while (validator.isEmpty(visitorNameInput)) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
+			System.out.println("名前を入力してください。");
+			System.out.print("Visitor Name: ");
+			visitorNameInput = scanner.nextLine();
+		}
+
+		if (!log.getVisitorName().equals(visitorNameInput)) {
+			System.out.println(HttpStatus.FORBIDDEN.getStatusLine());
+			System.out.println("登録した本人のみ編集できます。");
+			return;
+		}
+
 		System.out.println(HttpStatus.OK.getStatusLine());
 		commonUI.visitorLogCommonShow(log);
 
-		// create new visitor name
-		// create new visitor name
-		// create new visitor name
-		System.out.print("New Visitor Name: ");
-		String nameInput = scanner.nextLine();
-
-		while (validator.isEmpty(nameInput)) {
-			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
-			System.out.println("名前を入力してください。");
-			System.out.print("New Visitor Name: ");
-			nameInput = scanner.nextLine();
-		}
-
-		// Create new room code
+		// 編集する人の本人確認をパスしたら
 		// Create new room code
 		// Create new room code
 		System.out.print("New Room Code: ");
@@ -84,7 +88,6 @@ public class UpdateMenu implements Menu {
 
 		// create new message
 		// create new message
-		// create new message
 		System.out.println("メッセージを入力してください。");
 		String messageInput = scanner.nextLine();
 
@@ -95,7 +98,7 @@ public class UpdateMenu implements Menu {
 		}
 
 		// 呼び出し
-		VisitorLog updatedLog = updateService.update(id, nameInput, roomCode, messageInput);
+		VisitorLog updatedLog = updateService.update(id, roomCode, messageInput);
 
 		System.out.println(HttpStatus.OK.getStatusLine());
 		commonUI.visitorLogCommonShow(updatedLog);
