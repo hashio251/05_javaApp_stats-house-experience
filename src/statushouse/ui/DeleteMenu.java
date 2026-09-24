@@ -53,8 +53,22 @@ public class DeleteMenu {
 		System.out.println("Visited At: " + log.getVisitedAt());
 		System.out.println();
 
-		deleteService.delete(id);
-		System.out.println("204 No Content");
+		System.out.println("本当に削除しますか？");
+		System.out.println("1 : Yes");
+		System.out.println("2 : No");
+		System.out.print("数字を入力してください。: ");
+		int userAnswer = scanner.nextInt();
+
+		if (userAnswer == 1) {
+			deleteService.delete(id);
+			System.out.println("204 No Content");
+		} else if (userAnswer == 2) {
+			return;
+		} else {
+			while (userAnswer == 1 || userAnswer == 2)
+				System.out.println("数字を入力してください。");
+			userAnswer = scanner.nextInt();
+		}
 
 	}
 }
