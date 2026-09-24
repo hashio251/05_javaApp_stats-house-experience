@@ -13,6 +13,7 @@ public class UpdateMenu {
 	private final VisitorLogReadService readService;
 	private final VisitorLogUpdateService updateService;
 	private final InputValidator validator;
+	private final VisitorLogCommonUI commonUI;
 
 	/**
 	 * @param scanner
@@ -21,11 +22,12 @@ public class UpdateMenu {
 	 * @param inputValidator
 	 */
 	public UpdateMenu(Scanner scanner, VisitorLogReadService readService, VisitorLogUpdateService updateService,
-			InputValidator validator) {
+			InputValidator validator, VisitorLogCommonUI commonUI) {
 		this.scanner = scanner;
 		this.readService = readService;
 		this.updateService = updateService;
 		this.validator = validator;
+		this.commonUI = commonUI;
 	}
 
 	public void show() {
@@ -48,12 +50,7 @@ public class UpdateMenu {
 		}
 
 		System.out.println(HttpStatus.OK.getStatusLine());
-		System.out.println("ID: " + log.getId());
-		System.out.println("Visitor Name: " + log.getVisitorName());
-		System.out.println("Room Code: " + log.getRoomCode());
-		System.out.println("Message: " + log.getMessage());
-		System.out.println("Visited At: " + log.getVisitedAt());
-		System.out.println();
+		commonUI.visitorLogCommonShow(log);
 
 		// create new visitor name
 		// create new visitor name
@@ -96,11 +93,6 @@ public class UpdateMenu {
 		VisitorLog updatedLog = updateService.update(id, nameInput, roomCode, messageInput);
 
 		System.out.println(HttpStatus.OK.getStatusLine());
-		System.out.println("ID: " + updatedLog.getId());
-		System.out.println("Visitor Name: " + updatedLog.getVisitorName());
-		System.out.println("Room Code: " + updatedLog.getRoomCode());
-		System.out.println("Message: " + updatedLog.getMessage());
-		System.out.println("Visited At: " + updatedLog.getVisitedAt());
-		System.out.println();
+		commonUI.visitorLogCommonShow(updatedLog);
 	}
 }

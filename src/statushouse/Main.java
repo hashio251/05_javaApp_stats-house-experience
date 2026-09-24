@@ -14,6 +14,7 @@ import statushouse.ui.ListMenu;
 import statushouse.ui.MainMenu;
 import statushouse.ui.SearchMenu;
 import statushouse.ui.UpdateMenu;
+import statushouse.ui.VisitorLogCommonUI;
 import statushouse.validation.InputValidator;
 
 public class Main {
@@ -26,6 +27,7 @@ public class Main {
 
 		InputValidator validator = new InputValidator();
 
+		// service package
 		VisitorLogCreateService createService = new VisitorLogCreateService(repository);
 
 		VisitorLogReadService readService = new VisitorLogReadService(repository);
@@ -34,13 +36,17 @@ public class Main {
 
 		VisitorLogDeleteService deleteService = new VisitorLogDeleteService(repository);
 
-		CreateMenu createMenu = new CreateMenu(scanner, createService, validator);
+		// common ui
+		VisitorLogCommonUI commonUI = new VisitorLogCommonUI();
+
+		// ui package
+		CreateMenu createMenu = new CreateMenu(scanner, createService, validator, commonUI);
 
 		ListMenu listMenu = new ListMenu(readService);
 
-		DeleteMenu deleteMenu = new DeleteMenu(scanner, readService, deleteService, validator);
+		DeleteMenu deleteMenu = new DeleteMenu(scanner, readService, deleteService, validator, commonUI);
 
-		DetailMenu detailMenu = new DetailMenu(scanner, readService, validator);
+		DetailMenu detailMenu = new DetailMenu(scanner, readService, validator, commonUI);
 
 		UpdateMenu updateMenu = new UpdateMenu(scanner, readService, updateService, validator);
 

@@ -8,9 +8,11 @@ import statushouse.service.VisitorLogReadService;
 
 public class ListMenu {
 	private final VisitorLogReadService readService;
+	private final VisitorLogCommonUI commonUI;
 
-	public ListMenu(VisitorLogReadService readService) {
+	public ListMenu(VisitorLogReadService readService, VisitorLogCommonUI commonUI) {
 		this.readService = readService;
+		this.commonUI = commonUI;
 	}
 
 	public void show() {
@@ -23,12 +25,7 @@ public class ListMenu {
 
 		for (VisitorLog log : logs) {
 			System.out.println(HttpStatus.OK.getStatusLine());
-			System.out.println("ID: " + log.getId());
-			System.out.println("Visitor Name: " + log.getVisitorName());
-			System.out.println("Room Code: " + log.getRoomCode());
-			System.out.println("Visited At: " + log.getVisitedAt());
-			System.out.println("Message: " + log.getMessage());
-			System.out.println();
+			commonUI.visitorLogCommonShow(log);
 		}
 	}
 }

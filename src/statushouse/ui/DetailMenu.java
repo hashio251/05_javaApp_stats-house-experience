@@ -12,16 +12,19 @@ public class DetailMenu {
 	private final Scanner scanner;
 	private final VisitorLogReadService readService;
 	private final InputValidator inputValidator;
+	private final VisitorLogCommonUI commonUI;
 
 	/**
 	 * @param scanner
 	 * @param readService
 	 * @param inputValidator
 	 */
-	public DetailMenu(Scanner scanner, VisitorLogReadService readService, InputValidator inputValidator) {
+	public DetailMenu(Scanner scanner, VisitorLogReadService readService, InputValidator inputValidator,
+			VisitorLogCommonUI commonUI) {
 		this.scanner = scanner;
 		this.readService = readService;
 		this.inputValidator = inputValidator;
+		this.commonUI = commonUI;
 	}
 
 	public void show() {
@@ -44,12 +47,7 @@ public class DetailMenu {
 		}
 
 		System.out.println(HttpStatus.OK.getStatusLine());
-		System.out.println("ID: " + log.getId());
-		System.out.println("Visitor Name: " + log.getVisitorName());
-		System.out.println("Room Code: " + log.getRoomCode());
-		System.out.println("Message: " + log.getMessage());
-		System.out.println("Visited At: " + log.getVisitedAt());
-		System.out.println();
+		commonUI.visitorLogCommonShow(log);
 	}
 
 }
