@@ -43,7 +43,7 @@ HTTPステータスコードを数字や名称だけで覚えるのではなく�
 
 FigJamを使用して、アプリケーション全体の処理の流れを作成しました。
 
-![STATUS HOUSE CLI フローチャート](./docs/flow-chart.png)
+![STATUS HOUSE CLI フローチャート](./flow-chart.png)
 
 ---
 
