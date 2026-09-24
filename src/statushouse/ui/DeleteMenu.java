@@ -8,11 +8,12 @@ import statushouse.service.VisitorLogDeleteService;
 import statushouse.service.VisitorLogReadService;
 import statushouse.validation.InputValidator;
 
-public class DeleteMenu {
-	private Scanner scanner;
-	private VisitorLogReadService readService;
-	private VisitorLogDeleteService deleteService;
-	private InputValidator validator;
+public class DeleteMenu implements Menu {
+	private final Scanner scanner;
+	private final VisitorLogReadService readService;
+	private final VisitorLogDeleteService deleteService;
+	private final InputValidator validator;
+	private final VisitorLogCommonUI commonUI;
 
 	/**
 	 * @param scanner
@@ -21,13 +22,15 @@ public class DeleteMenu {
 	 * @param validator
 	 */
 	public DeleteMenu(Scanner scanner, VisitorLogReadService readService, VisitorLogDeleteService deleteService,
-			InputValidator validator) {
+			InputValidator validator, VisitorLogCommonUI commonUI) {
 		this.scanner = scanner;
 		this.readService = readService;
 		this.deleteService = deleteService;
 		this.validator = validator;
+		this.commonUI = commonUI;
 	}
 
+	@Override
 	public void show() {
 		System.out.println("IDを入力してください。");
 		System.out.println("Visitor ID: ");
@@ -47,12 +50,7 @@ public class DeleteMenu {
 		}
 
 		System.out.println(HttpStatus.OK.getStatusLine());
-		System.out.println("ID: " + log.getId());
-		System.out.println("Visitor Name: " + log.getVisitorName());
-		System.out.println("Room Code: " + log.getRoomCode());
-		System.out.println("Message: " + log.getMessage());
-		System.out.println("Visited At: " + log.getVisitedAt());
-		System.out.println();
+		commonUI.visitorLogCommonShow(log);
 
 		System.out.println("本当に削除しますか？");
 		System.out.println("1 : Yes");

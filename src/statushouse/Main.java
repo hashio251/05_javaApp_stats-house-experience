@@ -12,8 +12,10 @@ import statushouse.ui.DeleteMenu;
 import statushouse.ui.DetailMenu;
 import statushouse.ui.ListMenu;
 import statushouse.ui.MainMenu;
+import statushouse.ui.Menu;
 import statushouse.ui.SearchMenu;
 import statushouse.ui.UpdateMenu;
+import statushouse.ui.VisitorLogCommonUI;
 import statushouse.validation.InputValidator;
 
 public class Main {
@@ -26,6 +28,7 @@ public class Main {
 
 		InputValidator validator = new InputValidator();
 
+		// service package
 		VisitorLogCreateService createService = new VisitorLogCreateService(repository);
 
 		VisitorLogReadService readService = new VisitorLogReadService(repository);
@@ -34,44 +37,45 @@ public class Main {
 
 		VisitorLogDeleteService deleteService = new VisitorLogDeleteService(repository);
 
-		CreateMenu createMenu = new CreateMenu(scanner, createService, validator);
+		// common ui
+		VisitorLogCommonUI commonUI = new VisitorLogCommonUI();
 
-		ListMenu listMenu = new ListMenu(readService);
+		// ui package
+		CreateMenu createMenu = new CreateMenu(scanner, createService, validator, commonUI);
 
-		DeleteMenu deleteMenu = new DeleteMenu(scanner, readService, deleteService, validator);
+		ListMenu listMenu = new ListMenu(readService, commonUI);
 
-		DetailMenu detailMenu = new DetailMenu(scanner, readService, validator);
+		DeleteMenu deleteMenu = new DeleteMenu(scanner, readService, deleteService, validator, commonUI);
 
-		UpdateMenu updateMenu = new UpdateMenu(scanner, readService, updateService, validator);
+		DetailMenu detailMenu = new DetailMenu(scanner, readService, validator, commonUI);
 
-		SearchMenu searchMenu = new SearchMenu(scanner, readService, validator);
+		UpdateMenu updateMenu = new UpdateMenu(scanner, readService, updateService, validator, commonUI);
+
+		SearchMenu searchMenu = new SearchMenu(scanner, readService, validator, commonUI);
 
 		MainMenu mainMenu = new MainMenu(scanner, validator);
 
-		String menu = "";
+		Menu[] menus = {
+				null,
+				createMenu,
+				listMenu,
+				detailMenu,
+				updateMenu,
+				deleteMenu,
+				searchMenu
+		};
 
-		while (!menu.equals("0")) {
-			menu = mainMenu.showMenu();
-			switch (menu) {
-			case "1":
-				createMenu.show();
-				break;
-			case "2":
-				listMenu.show();
-				break;
-			case "3":
-				detailMenu.show();
-				break;
-			case "4":
-				updateMenu.show();
-				break;
-			case "5":
-				deleteMenu.show();
-				break;
-			case "6":
-				searchMenu.show();
+		while (true) {
+
+			String menu = mainMenu.showMenu();
+
+			if (menu.equals("0")) {
 				break;
 			}
+
+			int menuNumber = Integer.parseInt(menu);
+
+			menus[menuNumber].show();
 		}
 		scanner.close();
 	}

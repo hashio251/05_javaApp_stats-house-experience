@@ -7,22 +7,27 @@ import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogCreateService;
 import statushouse.validation.InputValidator;
 
-public class CreateMenu {
+public class CreateMenu implements Menu {
 	private final Scanner scanner;
 	private final VisitorLogCreateService createService;
 	private final InputValidator inputValidator;
+	private final VisitorLogCommonUI commonUI;
 
 	/**
 	 * @param scanner
 	 * @param createService
 	 */
-	public CreateMenu(Scanner scanner, VisitorLogCreateService createService, InputValidator inputValidator) {
+	public CreateMenu(Scanner scanner, VisitorLogCreateService createService, InputValidator inputValidator,
+			VisitorLogCommonUI commonUI) {
 		this.scanner = scanner;
 		this.createService = createService;
 		this.inputValidator = inputValidator;
+		this.commonUI = commonUI;
 	}
 
+	@Override
 	public void show() {
+
 		System.out.print("Visitor Name: ");
 		String nameInput = scanner.nextLine();
 
@@ -54,12 +59,7 @@ public class CreateMenu {
 		VisitorLog log = createService.create(nameInput, roomCode, message);
 
 		System.out.println(HttpStatus.CREATED.getStatusLine());
-		System.out.println("ID: " + log.getId());
-		System.out.println("Visitor Name: " + log.getVisitorName());
-		System.out.println("Room Code: " + log.getRoomCode());
-		System.out.println("Message: " + log.getMessage());
-		System.out.println("Visited At: " + log.getVisitedAt());
-		System.out.println();
+		commonUI.visitorLogCommonShow(log);
 	}
 
 }

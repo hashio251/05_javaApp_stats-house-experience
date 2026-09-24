@@ -7,22 +7,26 @@ import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogReadService;
 import statushouse.validation.InputValidator;
 
-public class SearchMenu {
+public class SearchMenu implements Menu {
 	private final Scanner scanner;
 	private final VisitorLogReadService readService;
 	private final InputValidator validator;
+	private final VisitorLogCommonUI commonUI;
 
 	/**
 	 * @param scanner
 	 * @param readService
 	 * @param validator
 	 */
-	public SearchMenu(Scanner scanner, VisitorLogReadService readService, InputValidator validator) {
+	public SearchMenu(Scanner scanner, VisitorLogReadService readService, InputValidator validator,
+			VisitorLogCommonUI commonUI) {
 		this.scanner = scanner;
 		this.readService = readService;
 		this.validator = validator;
+		this.commonUI = commonUI;
 	}
 
+	@Override
 	public void show() {
 		System.out.print("Search ID: ");
 		String idInput = scanner.nextLine();
@@ -43,12 +47,7 @@ public class SearchMenu {
 		}
 
 		System.out.println(HttpStatus.OK.getStatusLine());
-		System.out.println("ID: " + log.getId());
-		System.out.println("Visitor Name: " + log.getVisitorName());
-		System.out.println("Room Code: " + log.getRoomCode());
-		System.out.println("Message: " + log.getMessage());
-		System.out.println("Visited At: " + log.getVisitedAt());
-		System.out.println();
+		commonUI.visitorLogCommonShow(log);
 	}
 
 }
