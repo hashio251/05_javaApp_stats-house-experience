@@ -41,7 +41,7 @@ public class DeleteMenu {
 		VisitorLog log = readService.findById(id);
 
 		if (log == null) {
-			System.out.println("404 }Not Found");
+			System.out.println("404 Not Found");
 			return;
 		}
 
@@ -52,6 +52,9 @@ public class DeleteMenu {
 		System.out.println("Message: " + log.getMessage());
 		System.out.println("Visited At: " + log.getVisitedAt());
 		System.out.println();
+
+		deleteService.delete(id);
+		System.out.println("204 No Content");
 
 	}
 }
