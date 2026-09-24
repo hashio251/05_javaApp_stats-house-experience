@@ -23,6 +23,7 @@ public class MainMenu {
 		System.out.println("6. Search by ID");
 		System.out.println("0. Exit");
 		System.out.println("========================");
+		System.out.println();
 
 		String input = scanner.nextLine();
 		if (!validator.isValidMenu(input)) {
