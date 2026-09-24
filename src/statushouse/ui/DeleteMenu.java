@@ -59,14 +59,12 @@ public class DeleteMenu {
 		System.out.print("数字を入力してください。: ");
 		String inputAnswer = scanner.nextLine();
 
-		while (!validator.isNumber(inputAnswer)) {
+		while (!inputAnswer.equals("1") && !inputAnswer.equals("2")) {
 			System.out.println("1か2を入力してください。");
 			inputAnswer = scanner.nextLine();
 		}
 
-		int answer = Integer.parseInt(inputAnswer);
-
-		if (answer == 1) {
+		if (inputAnswer.equals("1")) {
 			deleteService.delete(id);
 			System.out.println("204 No Content");
 		} else {
