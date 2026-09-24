@@ -7,7 +7,7 @@ import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogReadService;
 
 public class ListMenu {
-	private VisitorLogReadService readService;
+	private final VisitorLogReadService readService;
 
 	public ListMenu(VisitorLogReadService readService) {
 		this.readService = readService;

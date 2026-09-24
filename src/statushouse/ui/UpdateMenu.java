@@ -9,10 +9,10 @@ import statushouse.service.VisitorLogUpdateService;
 import statushouse.validation.InputValidator;
 
 public class UpdateMenu {
-	private Scanner scanner;
-	private VisitorLogReadService readService;
-	private VisitorLogUpdateService updateService;
-	private InputValidator validator;
+	private final Scanner scanner;
+	private final VisitorLogReadService readService;
+	private final VisitorLogUpdateService updateService;
+	private final InputValidator validator;
 
 	/**
 	 * @param scanner

@@ -7,7 +7,7 @@ import statushouse.repository.VisitorLogRepository;
 
 public class VisitorLogCreateService {
 
-	private VisitorLogRepository repository;
+	private final VisitorLogRepository repository;
 
 	/**
 	 * @param repository

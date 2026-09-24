@@ -9,9 +9,9 @@ import statushouse.validation.InputValidator;
 
 public class DetailMenu {
 
-	private Scanner scanner;
-	private VisitorLogReadService readService;
-	private InputValidator inputValidator;
+	private final Scanner scanner;
+	private final VisitorLogReadService readService;
+	private final InputValidator inputValidator;
 
 	/**
 	 * @param scanner

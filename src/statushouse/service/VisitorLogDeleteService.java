@@ -4,7 +4,7 @@ import statushouse.model.VisitorLog;
 import statushouse.repository.VisitorLogRepository;
 
 public class VisitorLogDeleteService {
-	private VisitorLogRepository repository;
+	private final VisitorLogRepository repository;
 
 	/**
 	 * @param repository
