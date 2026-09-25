@@ -51,19 +51,18 @@ public class DeleteMenu implements Menu {
 		}
 
 		// 削除する人の本人確認
-		System.out.print("Visitor Name: ");
-		String visitorNameInput = scanner.nextLine();
-
-		while (validator.isEmpty(visitorNameInput)) {
+		System.out.print("Password: ");
+		String visitorPassInput = scanner.nextLine();
+		while (!validator.isNumber(visitorPassInput) || visitorPassInput.length() != 4) {
 			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
-			System.out.println("名前を入力してください。");
-			System.out.print("Visitor Name: ");
-			visitorNameInput = scanner.nextLine();
+			System.out.println("４桁の数字を入力してください。");
+			System.out.print("Password: ");
+			visitorPassInput = scanner.nextLine();
 		}
 
-		if (!log.getVisitorName().equals(visitorNameInput)) {
+		if (!log.getPassword().equals(visitorPassInput)) {
 			System.out.println(HttpStatus.FORBIDDEN.getStatusLine());
-			System.out.println("登録した本人のみ削除できます。");
+			System.out.println("Passwordが違います。");
 			return;
 		}
 
@@ -78,7 +77,7 @@ public class DeleteMenu implements Menu {
 
 		while (!inputAnswer.equals("1") && !inputAnswer.equals("2")) {
 			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
-			System.out.println("1か2を入力してください。");
+			System.out.print("1か2を入力してください。: ");
 			inputAnswer = scanner.nextLine();
 		}
 
