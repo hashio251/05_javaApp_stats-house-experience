@@ -13,12 +13,12 @@ public class VisitorLogCreateService extends VisitorLogService {
 		super(repository);
 	}
 
-	// 名前・部屋番号・メッセージをもらったら登録処理
-	public VisitorLog create(String visitorName, int roomCode, String message) {
+	// 名前・pass・部屋番号・メッセージをもらったら登録処理
+	public VisitorLog create(String visitorName, String password, int roomCode, String message) {
 		int id = repository.createNextId();
 		String visitedAtString = LocalDateTime.now().toString();
 
-		VisitorLog log = new VisitorLog(id, visitorName, roomCode, message, visitedAtString);
+		VisitorLog log = new VisitorLog(id, visitorName, password, roomCode, message, visitedAtString);
 
 		repository.save(log);
 

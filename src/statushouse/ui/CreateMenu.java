@@ -38,6 +38,17 @@ public class CreateMenu implements Menu {
 			nameInput = scanner.nextLine();
 		}
 
+		// password
+		System.out.println("４桁の数字でパスワードを入力してください。\nパスワードを作成します。");
+		System.out.print("Password: ");
+		String passInput = scanner.nextLine();
+		while (!inputValidator.isNumber(passInput) || passInput.length() != 4) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
+			System.out.println("４桁の数字を入力してください。");
+			System.out.print("Password: ");
+			passInput = scanner.nextLine();
+		}
+
 		// 追加で、別ファイルでRoomCodeを管理する
 		System.out.println("Room Code: ");
 		String roomCodeInput = scanner.nextLine();
@@ -59,7 +70,7 @@ public class CreateMenu implements Menu {
 			message = scanner.nextLine();
 		}
 
-		VisitorLog log = createService.create(nameInput, roomCode, message);
+		VisitorLog log = createService.create(nameInput, passInput, roomCode, message);
 
 		System.out.println(HttpStatus.CREATED.getStatusLine());
 		commonUI.visitorLogCommonShow(log);

@@ -12,11 +12,10 @@ public class VisitorLogUpdateService extends VisitorLogService {
 		super(repository);
 	}
 
-	public VisitorLog update(int id, int roomCode, String message) {
+	public VisitorLog update(int id, String name, int roomCode, String message) {
 		VisitorLog log = repository.findById(id);
 		if (log != null) {
-			log.setRoomCode(roomCode);
-			log.setMessage(message);
+			log.setVisitorName(name);
 			log.setRoomCode(roomCode);
 			log.setMessage(message);
 			return log;
