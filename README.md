@@ -71,7 +71,7 @@ Visitor Logは以下の2つの条件から検索できます。
 
 FigJamを使用して、アプリケーション全体の処理の流れを作成しました。
 
-![STATUS HOUSE CLI フローチャート](./flow-chart.png)
+![STATUS HOUSE CLI フローチャート](./flowchart.png)
 
 ---
 
