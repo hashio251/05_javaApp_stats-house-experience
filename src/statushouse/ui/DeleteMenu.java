@@ -50,6 +50,23 @@ public class DeleteMenu implements Menu {
 			return;
 		}
 
+		// 削除する人の本人確認
+		System.out.print("Visitor Name: ");
+		String visitorNameInput = scanner.nextLine();
+
+		while (validator.isEmpty(visitorNameInput)) {
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
+			System.out.println("名前を入力してください。");
+			System.out.print("Visitor Name: ");
+			visitorNameInput = scanner.nextLine();
+		}
+
+		if (!log.getVisitorName().equals(visitorNameInput)) {
+			System.out.println(HttpStatus.FORBIDDEN.getStatusLine());
+			System.out.println("登録した本人のみ削除できます。");
+			return;
+		}
+
 		System.out.println(HttpStatus.OK.getStatusLine());
 		commonUI.visitorLogCommonShow(log);
 
