@@ -5,6 +5,7 @@ import statushouse.model.VisitorLog;
 // common ui of ui package
 public class VisitorLogCommonUI {
 	public void visitorLogCommonShow(VisitorLog log) {
+		System.out.println();
 		System.out.println("ID: " + log.getId());
 		System.out.println("Visitor Name: " + log.getVisitorName());
 		System.out.println("Room Code: " + log.getRoomCode());
