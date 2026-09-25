@@ -78,7 +78,7 @@ public class DeleteMenu implements Menu {
 
 		while (!inputAnswer.equals("1") && !inputAnswer.equals("2")) {
 			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
-			System.out.println("1か2を入力してください。");
+			System.out.print("1か2を入力してください。: ");
 			inputAnswer = scanner.nextLine();
 		}
 
