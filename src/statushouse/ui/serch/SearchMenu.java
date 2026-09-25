@@ -30,12 +30,13 @@ public class SearchMenu implements Menu {
 	public void show() {
 
 		while (true) {
-
+			System.out.println();
 			System.out.println("===== Search =====");
 			System.out.println("1. Search by Visitor Name");
 			System.out.println("2. Search by Room Code");
 			System.out.println("0. Back");
 			System.out.println("==================");
+			System.out.println();
 
 			String input = scanner.nextLine();
 

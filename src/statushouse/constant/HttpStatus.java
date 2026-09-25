@@ -29,6 +29,6 @@ public enum HttpStatus {
 	}
 
 	public String getStatusLine() {
-		return code + " " + message;
+		return "\n----- HTTP Status Code -----\n" + code + " " + message + "\n----------------------------\n";
 	}
 }

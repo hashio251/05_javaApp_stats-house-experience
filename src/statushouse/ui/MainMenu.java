@@ -17,6 +17,7 @@ public class MainMenu {
 	public String showMenu() {
 		// メソッドごと抜けるようにし、毎回表示させない
 		while (true) {
+			System.out.println();
 			System.out.println("===== STATUS HOUSE =====");
 			System.out.println("1. Visitor Check-in");
 			System.out.println("2. Visitor Log List");
@@ -26,8 +27,11 @@ public class MainMenu {
 			System.out.println("6. Search by ID");
 			System.out.println("0. Exit");
 			System.out.println("========================");
-
+			System.out.println();
+			System.out.print("Select Menu Number:");
 			String input = scanner.nextLine();
+			System.out.println();
+
 			if (validator.isValidMenu(input)) {
 				return input;
 			}

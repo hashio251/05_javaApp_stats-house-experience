@@ -50,7 +50,7 @@ public class CreateMenu implements Menu {
 		}
 
 		// 追加で、別ファイルでRoomCodeを管理する
-		System.out.println("Room Code: ");
+		System.out.print("Room Code: ");
 		String roomCodeInput = scanner.nextLine();
 		while (!inputValidator.isNumber(roomCodeInput)) {
 			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
