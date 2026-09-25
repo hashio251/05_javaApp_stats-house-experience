@@ -24,11 +24,11 @@ public class MainMenu {
 			System.out.println("3. Visitor Log Details");
 			System.out.println("4. Edit Visitor Log");
 			System.out.println("5. Delete Visitor Log");
-			System.out.println("6. Search by ID");
+			System.out.println("6. Search Visitor Logs");
 			System.out.println("0. Exit");
 			System.out.println("========================");
 			System.out.println();
-			System.out.print("Select Menu Number:");
+			System.out.print("Select Menu Number: ");
 			String input = scanner.nextLine();
 			System.out.println();
 

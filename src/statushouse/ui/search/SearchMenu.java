@@ -1,4 +1,4 @@
-package statushouse.ui.serch;
+package statushouse.ui.search;
 
 import java.util.Scanner;
 

@@ -15,9 +15,9 @@ import statushouse.ui.MainMenu;
 import statushouse.ui.Menu;
 import statushouse.ui.UpdateMenu;
 import statushouse.ui.VisitorLogCommonUI;
-import statushouse.ui.serch.SearchByRoomCodeMenu;
-import statushouse.ui.serch.SearchByVisitorNameMenu;
-import statushouse.ui.serch.SearchMenu;
+import statushouse.ui.search.SearchByRoomCodeMenu;
+import statushouse.ui.search.SearchByVisitorNameMenu;
+import statushouse.ui.search.SearchMenu;
 import statushouse.validation.InputValidator;
 
 public class Main {

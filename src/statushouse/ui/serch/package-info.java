@@ -1,7 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-package statushouse.ui.serch;
