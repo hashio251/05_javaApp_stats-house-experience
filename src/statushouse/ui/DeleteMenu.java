@@ -61,6 +61,7 @@ public class DeleteMenu implements Menu {
 		}
 
 		if (!log.getPassword().equals(visitorPassInput)) {
+			System.out.println(HttpStatus.UNAUTHORIZED.getStatusLine());
 			System.out.println(HttpStatus.FORBIDDEN.getStatusLine());
 			System.out.println("Passwordが違います。");
 			return;

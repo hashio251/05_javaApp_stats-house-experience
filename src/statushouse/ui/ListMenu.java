@@ -20,7 +20,7 @@ public class ListMenu implements Menu {
 		List<VisitorLog> logs = readService.findAll();
 
 		if (logs.isEmpty()) {
-			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
+			System.out.println(HttpStatus.NOT_FOUND.getStatusLine());
 			System.out.println("訪問者ログがありません。");
 			return;
 		}
