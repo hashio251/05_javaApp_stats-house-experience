@@ -85,6 +85,7 @@ FigJamを使用して、アプリケーション全体の処理の流れを作�
 | 201 Created | Visitor Logを登録した場合 |
 | 204 No Content | Visitor Logを削除した場合 |
 | 400 Bad Request | 入力値が正しくない場合 |
+| 401 Unauthorized | 有効な認証情報がなく、リクエスト拒否される場合 |
 | 403 Forbidden | 編集・削除時のパスワードが一致しない場合 |
 | 404 Not Found | 指定した条件のVisitor Logが存在しない場合 |
 
