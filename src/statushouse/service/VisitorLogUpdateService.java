@@ -8,6 +8,7 @@ public class VisitorLogUpdateService extends VisitorLogService {
 	/**
 	 * @param repository
 	 */
+
 	public VisitorLogUpdateService(VisitorLogRepository repository) {
 		super(repository);
 	}
