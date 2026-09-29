@@ -5,6 +5,12 @@ HTTPステータスコードをテーマにした、JavaのCLIアプリケーシ
 訪問者ログの登録・一覧表示・詳細表示・編集・削除・検索を行い、  
 処理結果に応じてHTTPステータスコードを表示します。
 
+![STATUS HOUSE CLI サムネイル画像](./CLI_status-house.png)
+
+
+▼　スライドへのリンク
+https://1drv.ms/p/c/a7f60b70ff539079/IQB6asq7lvkAQ41o1Ec06RTSAaNwBvC_8pqNagTh2kkyy8Q
+
 ---
 
 ## 制作目的
