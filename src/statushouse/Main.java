@@ -7,17 +7,16 @@ import statushouse.service.VisitorLogCreateService;
 import statushouse.service.VisitorLogDeleteService;
 import statushouse.service.VisitorLogReadService;
 import statushouse.service.VisitorLogUpdateService;
-import statushouse.ui.CreateMenu;
-import statushouse.ui.DeleteMenu;
-import statushouse.ui.DetailMenu;
-import statushouse.ui.ListMenu;
-import statushouse.ui.MainMenu;
-import statushouse.ui.Menu;
-import statushouse.ui.UpdateMenu;
 import statushouse.ui.VisitorLogCommonUI;
-import statushouse.ui.search.SearchByRoomCodeMenu;
-import statushouse.ui.search.SearchByVisitorNameMenu;
-import statushouse.ui.search.SearchMenu;
+import statushouse.ui.main.CreateMenu;
+import statushouse.ui.main.DeleteMenu;
+import statushouse.ui.main.DetailMenu;
+import statushouse.ui.main.ListMenu;
+import statushouse.ui.main.MainMenu;
+import statushouse.ui.main.UpdateMenu;
+import statushouse.ui.main.search.SearchByRoomCodeMenu;
+import statushouse.ui.main.search.SearchByVisitorNameMenu;
+import statushouse.ui.main.search.SearchMenu;
 import statushouse.validation.InputValidator;
 
 public class Main {

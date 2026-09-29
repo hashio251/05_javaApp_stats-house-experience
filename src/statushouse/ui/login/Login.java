@@ -3,36 +3,38 @@ package statushouse.ui.login;
 import java.util.Scanner;
 
 import statushouse.constant.HttpStatus;
-import statushouse.validation.InputValidator;
 
 public class Login {
 	private final Scanner scanner;
-	private final InputValidator validator;
 
-	public LoginMenu(Scanner scanner, InputValidator validator) {
+	public Login(Scanner scanner) {
 		this.scanner = scanner;
-		this.validator = validator;
 	}
 
 	public String showLoginMenu() {
+
 		while (true) {
+
 			System.out.println();
 			System.out.println("===== STATUS HOUSE LOGIN MENU =====");
-			System.out.println("1. Visitor Check-in");
-			System.out.println("2. Visitor Sign-up(Start for the first time)");
+			System.out.println("1. Visitor Login");
+			System.out.println("2. Visitor Sign-up");
+			System.out.println("0. Exit");
 			System.out.println("===================================");
 			System.out.println();
 			System.out.print("Select Menu Number: ");
+
 			String input = scanner.nextLine();
-			System.out.println();
-		}
 
-		if (validator.isValidMenu(input)) {
-			return input;
-		}
-		System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
-		System.out.println("1-2の数字を入力してください。");
-		System.out.println();
+			if (input.equals("0")
+					|| input.equals("1")
+					|| input.equals("2")) {
 
+				return input;
+			}
+
+			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
+			System.out.println("0-2の数字を入力してください。");
+		}
 	}
 }
