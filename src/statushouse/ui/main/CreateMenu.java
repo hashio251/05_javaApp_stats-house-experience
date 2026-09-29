@@ -1,10 +1,11 @@
-package statushouse.ui;
+package statushouse.ui.main;
 
 import java.util.Scanner;
 
 import statushouse.constant.HttpStatus;
 import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogCreateService;
+import statushouse.ui.VisitorLogCommonUI;
 import statushouse.validation.InputValidator;
 
 public class CreateMenu implements Menu {

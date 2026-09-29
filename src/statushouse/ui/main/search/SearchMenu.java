@@ -1,9 +1,9 @@
-package statushouse.ui.search;
+package statushouse.ui.main.search;
 
 import java.util.Scanner;
 
 import statushouse.constant.HttpStatus;
-import statushouse.ui.Menu;
+import statushouse.ui.main.Menu;
 import statushouse.validation.InputValidator;
 
 public class SearchMenu implements Menu {

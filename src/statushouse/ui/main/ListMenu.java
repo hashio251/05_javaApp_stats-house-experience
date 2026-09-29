@@ -1,10 +1,11 @@
-package statushouse.ui;
+package statushouse.ui.main;
 
 import java.util.List;
 
 import statushouse.constant.HttpStatus;
 import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogReadService;
+import statushouse.ui.VisitorLogCommonUI;
 
 public class ListMenu implements Menu {
 	private final VisitorLogReadService readService;

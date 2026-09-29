@@ -1,4 +1,4 @@
-package statushouse.ui.search;
+package statushouse.ui.main.search;
 
 import java.util.List;
 import java.util.Scanner;
@@ -6,8 +6,8 @@ import java.util.Scanner;
 import statushouse.constant.HttpStatus;
 import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogReadService;
-import statushouse.ui.Menu;
 import statushouse.ui.VisitorLogCommonUI;
+import statushouse.ui.main.Menu;
 
 public class SearchByVisitorNameMenu implements Menu {
 	private final Scanner scanner;

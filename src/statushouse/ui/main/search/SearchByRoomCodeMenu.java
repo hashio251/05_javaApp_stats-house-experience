@@ -1,14 +1,16 @@
-package statushouse.ui;
+package statushouse.ui.main.search;
 
+import java.util.List;
 import java.util.Scanner;
 
 import statushouse.constant.HttpStatus;
 import statushouse.model.VisitorLog;
 import statushouse.service.VisitorLogReadService;
+import statushouse.ui.VisitorLogCommonUI;
+import statushouse.ui.main.Menu;
 import statushouse.validation.InputValidator;
 
-public class DetailMenu implements Menu {
-
+public class SearchByRoomCodeMenu implements Menu {
 	private final Scanner scanner;
 	private final VisitorLogReadService readService;
 	private final InputValidator inputValidator;
@@ -17,9 +19,9 @@ public class DetailMenu implements Menu {
 	/**
 	 * @param scanner
 	 * @param readService
-	 * @param inputValidator
+	 * @param commonUI
 	 */
-	public DetailMenu(Scanner scanner, VisitorLogReadService readService, InputValidator inputValidator,
+	public SearchByRoomCodeMenu(Scanner scanner, VisitorLogReadService readService, InputValidator inputValidator,
 			VisitorLogCommonUI commonUI) {
 		this.scanner = scanner;
 		this.readService = readService;
@@ -29,27 +31,30 @@ public class DetailMenu implements Menu {
 
 	@Override
 	public void show() {
-		System.out.println("ID: ");
-		String idInput = scanner.nextLine();
 
-		while (!inputValidator.isNumber(idInput)) {
+		System.out.print("Visitor Room Code: ");
+		String roomCodeInput = scanner.nextLine();
+
+		while (!inputValidator.isNumber(roomCodeInput)) {
 			System.out.println(HttpStatus.BAD_REQUEST.getStatusLine());
-			System.out.println("IDを入力してください。");
-			System.out.println("ID: ");
-			idInput = scanner.nextLine();
+			System.out.println("数字を入力してください。");
+			System.out.print("Room Code: ");
+			roomCodeInput = scanner.nextLine();
 		}
 
-		int id = Integer.parseInt(idInput);
+		int roomCode = Integer.parseInt(roomCodeInput);
 
-		VisitorLog log = readService.findById(id);
+		List<VisitorLog> logs = readService.findByRoomCode(roomCode);
 
-		if (log == null) {
+		if (logs.isEmpty()) {
 			System.out.println(HttpStatus.NOT_FOUND.getStatusLine());
 			return;
 		}
 
 		System.out.println(HttpStatus.OK.getStatusLine());
-		commonUI.visitorLogCommonShow(log);
-	}
 
+		for (VisitorLog log : logs) {
+			commonUI.visitorLogCommonShow(log);
+		}
+	}
 }
