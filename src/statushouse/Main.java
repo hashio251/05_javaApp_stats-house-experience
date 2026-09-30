@@ -13,6 +13,7 @@ import statushouse.ui.main.DeleteMenu;
 import statushouse.ui.main.DetailMenu;
 import statushouse.ui.main.ListMenu;
 import statushouse.ui.main.MainMenu;
+import statushouse.ui.main.Menu;
 import statushouse.ui.main.UpdateMenu;
 import statushouse.ui.main.search.SearchByRoomCodeMenu;
 import statushouse.ui.main.search.SearchByVisitorNameMenu;
