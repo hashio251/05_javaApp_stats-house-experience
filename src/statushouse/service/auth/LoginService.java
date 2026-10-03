@@ -1,11 +1,9 @@
 package statushouse.service.auth;
 
 import statushouse.repository.VisitorLogRepository;
-import statushouse.service.VisitorLogService;
 
-public class LoginService extends VisitorLogService {
+public class LoginService {
 	public LoginService(VisitorLogRepository repository) {
-		super(repository);
 	}
 
 }
