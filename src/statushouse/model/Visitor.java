@@ -4,19 +4,19 @@ public class Visitor {
 	private int id;
 	private String visitorName;
 	private String password;
-	private String signupAt;
+	private String signedUpAt;
 
 	/**
 	 * @param id
 	 * @param visitorName
 	 * @param password
-	 * @param signupAt
+	 * @param signedUpAt
 	 */
-	public Visitor(int id, String visitorName, String password, String signupAt) {
+	public Visitor(int id, String visitorName, String password, String signedUpAt) {
 		this.id = id;
 		this.visitorName = visitorName;
 		this.password = password;
-		this.signupAt = signupAt;
+		this.signedUpAt = signedUpAt;
 	}
 
 	public int getId() {
@@ -31,12 +31,8 @@ public class Visitor {
 		return password;
 	}
 
-	public String getSignupAt() {
-		return signupAt;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public String getsignedUpAt() {
+		return signedUpAt;
 	}
 
 	public void setVisitorName(String visitorName) {
